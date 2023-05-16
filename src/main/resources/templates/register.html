@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Signup</title>
+    <style>
+        body {
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .form-signin {
+            background-color: white;
+            opacity: 0.8;
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .form-signin label {
+            margin-top: 10px;
+        }
+
+        .form-signin input[type="text"], .form-signin input[type="password"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-signin button[type="submit"] {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-signin button[type="submit"]:hover {
+            background-color: #3E8E41;
+        }
+
+        .form-signin a {
+            color: #4CAF50;
+        }
+
+    </style>
+</head>
+<body>
+<!--/*@thymesVar id="user" type=""*/-->
+<form th:action="@{/register}" th:object="${user}" method="post" action="login.html">
+    <h3>FD_LOGISTICS Signup Form</h3>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" th:placeholder="First Name" /><br/><br/>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" th:placeholder="Last Name" /><br/><br/>
+    <label for="mobileNumber">Mobile Number:</label>
+    <input type="text" id="mobileNumber" name="mobileNumber" th:placeholder="Mobile Number" /><br/><br/>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" th:placeholder="Email" /><br/><br/>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" th:placeholder="Password" /><br/><br/>
+    <label for="role">Role:</label>
+    <select id="role" name="role" th:field="role" required>
+        <option value="">Select</option>
+        <option value="ADMIN">ADMIN</option>
+        <option value="USER">USER</option>
+    </select><br/><br/>
+    <button type="submit">Register</button>|<a th:href="@{|/login}" th:text="'login'"></a>
+
+
+</form>
+</body>
+</html>

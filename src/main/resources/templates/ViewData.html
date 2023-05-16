@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View clearance clients</title>
+</head>
+
+<body>
+<center>
+    <h1 >CLEARANCE AND FORWARDING NEEDED TO BE MET </h1>
+    <p>
+        Welcome! We're glad you chose FD_LOGISTICS!!
+
+    <p>
+</center>
+
+<table>
+    <thead>
+    <tr>
+        <td>Clearance Id</td>
+        <td>Client name</td>
+        <td>Client email</td>
+        <td>Client phone</td>
+        <td>company name</td>
+        <td>Clearance type</td>
+    </tr>
+    </thead>
+    <tbody>
+<tr th:each="cl : ${clearanceList}">
+    <td th:text="${cl.clearanceId}"></td>
+    <td th:text="${cl.name}"></td>
+    <td th:text="${cl.email}"></td>
+    <td th:text="${cl.phone}"></td>
+    <td th:text="${cl.companyname}"></td>
+    <td th:text="${cl.clearancetype}"></td>
+    <td><a class="btn btn-primary" th:href="@{/all/{clearance}/delete(clearance=${cl.clearanceId})}">Delete</a></td>
+
+    </tbody>
+</table><p>
+<center>
+
+    for more information you can call us +250786095600 or visit us on email:mdina2009@gmail.com
+</center>
+<p>
+</body>
+</html>

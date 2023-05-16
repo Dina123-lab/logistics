@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Homepage</title>
+  <style>
+    /* Style for the body */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    /* Style for the heading */
+    h2 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* Style for the paragraphs */
+    p {
+      margin: 20px;
+    }
+
+    /* Style for the links */
+    a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    /* Style for the buttons */
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Style for the buttons on hover */
+    button:hover {
+      background-color: #3e8e41;
+    }
+
+    /* Style for the logged in user info */
+    .logged-in-info {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 4px;
+    }
+
+    /* Style for the logout link */
+    .logged-in-info a {
+      background-color: #f44336;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    /* Style for the logout link on hover */
+    .logged-in-info a:hover {
+      background-color: #c62828;
+    }
+
+  </style>
+</head>
+<body>
+<h2>Welcome to Homepage</h2>
+<p sec:authorize="hasRole('ROLE_ANONYMOUS')">Text visible to anonymous.</p>
+<p sec:authorize="hasRole('USER')">Text visible to user.</p>
+<p sec:authorize="hasRole('ADMIN')">Text visible to admin.</p>
+<p sec:authorize="isAuthenticated()">Text visible only to authenticated users.</p>
+
+<div sec:authorize="hasRole('ROLE_ANONYMOUS')">
+  <p><a th:href="@{|/login|}" th:text="'Log in'"></a></p>
+  <p><a th:href="@{|/register|}" th:text="'Register'"></a></p>
+</div>
+
+<div sec:authorize="isAuthenticated()">
+  <p>Logged as: <span sec:authentication="name"></span></p>
+  <p>Has role: <span sec:authentication="authorities"></span></p>
+  <p sec:authorize="hasAuthority('USER')"><a th:href="@{|/dashboard|}" th:text="'User Dashboard'"></a></p>
+  <p sec:authorize="hasAuthority('ADMIN')"><a th:href="@{|/admin/dashboard|}" th:text="'Admin Dashboard'"></a></p>
+  <a th:href="@{/logout}">Log out</a>
+</div>
+</body>
+</html>

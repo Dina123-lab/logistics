@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logistics Online</title>
+    <style>
+        /* Set body background image */
+        body {
+            background-image: url('log.jpg');
+            background-size: cover;
+        }
+
+        /* Style header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #0080FF;
+        }
+
+        /* Style main content */
+        main {
+            margin-top: 5rem;
+            padding: 2rem;
+        }
+
+        main h2 {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #0080FF;
+            color: #ffffff;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #005CAF;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Logistics Online</h1>
+    <nav>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Logistics Online is an online logistics company dedicated to providing efficient, reliable and cost-effective logistics solutions to businesses and individuals alike. Our team of experienced professionals is committed to ensuring that our clients' logistics needs are met, no matter how big or small.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Freight forwarding</li>
+            <li>Warehousing and distribution</li>
+            <li>Customs brokerage</li>
+            <li>Supply chain management</li>
+            <li>International shipping</li>
+            <li>And more...</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us today to learn more about our services and how we can help your business with its logistics needs.</p>
+        <form action="submit-form.php" method="post"action="ViewData.html">
+            <label for="clearanceId">Name:</label>
+            <input type="text" id="clearanceId" name="clearanceId" required>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <label for="companyname">Company:</label>
+            <input type="text" id="companyname" name="companyname">
+            <label for="clearancetype">Type of Clearance Needed:</label>
+            <select id="clearancetype" name="clearancetype">
+                <option value="Import Clearance">Import Clearance</option>
+                <option value="Export Clearance">Export Clearance</option>
+                <option value="Customs Clearance">Customs Clearance</option>
+            </select>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send Message</button>|<a th:href="@{|/dashboard}" th:text="'dashboard'"></a>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2023 FD_Logistics App. All rights reserved.</p>
+</footer>
+</body>
+</html>
